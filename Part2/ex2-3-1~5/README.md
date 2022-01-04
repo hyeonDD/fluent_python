@@ -5,13 +5,13 @@
 * 레코드로서의 튜플
     - 튜플은 레코드를 담고 있다. 튜플의 각 항목은 레코드의 필드 하나를 의미하며 항목의 위치가 의미를 결정한다.
 
-    [레코드로서의 튜플](https://github.com/hyeonDD/fluent_python/blob/master/Part2/ex2-3-1~5~5/tuple_as_record.py "소스코드")
+    [레코드로서의 튜플](https://github.com/hyeonDD/fluent_python/blob/master/Part2/ex2-3-1~5/tuple_as_record.py "소스코드")
 
     - 튜플은 언패킹 매커니즘 덕분에 레코드로도 잘 동작한다.
 
 * 튜플 언패킹
 
-    [레코드로서의 튜플](https://github.com/hyeonDD/fluent_python/blob/master/Part2/ex2-3-1~5~5/tuple_as_record.py "소스코드")
+    [레코드로서의 튜플](https://github.com/hyeonDD/fluent_python/blob/master/Part2/ex2-3-1~5/tuple_as_record.py "소스코드")
     - 위 소스코드를 보면 단 하나의 문장에서 city, year, pop, chg, are 변수에 여러 값을 할당했고, 마지막 행에서 print() 함수의 인수로 전달한 포맷 문자열의 각 슬롯에 passport 튜플의 각 항목을 할당했다.
     
     - 튜플 언패킹을 활용하면 임시 변수를 사용하지 않고도 두 변스의 값을 서로 교환할 수 있다. b, a = a, b 처럼
