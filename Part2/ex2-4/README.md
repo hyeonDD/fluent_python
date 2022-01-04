@@ -5,7 +5,7 @@
     - 시작점과 중단점을 모두 지정할 때도 길이를 계산하기 쉽다. 단지 중단점에서 시작점을 빼면 된다.
     - 다음 예제에서 보는 것처럼, x 인덱스를 기준으로 겹침 없이 시퀀스를 분할하기 쉽다. 단지 my_list[:x]와 my_list[x:]로 지정하면 된다.
 
-    [슬라이싱 예제]](https://github.com/hyeonDD/fluent_python/blob/master/Part2/ex2-4/ex_slicing.py "소스코드")
+    [슬라이싱 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part2/ex2-4/ex_slicing.py "소스코드")
 
 * 슬라이스 객체
     - 1장에서 사용한 deck[12::13] 와 같이 a:b:c표기법은 인덱스 연산을 수행하는 [] 안에서만 사용할수있다.
