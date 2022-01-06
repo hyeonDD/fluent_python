@@ -6,20 +6,13 @@
 2. 다른 하나는 dict 등의 매핑형을 상속해서 __missing__() 메서드를 추가하는 방법이다.
 
 * defaultdict: 존재하지 않는 키에 대한 또 다른 처리
-    <!--
-    - 표준 라이브리에서 제공하는 매핑형은 모두 dict을 이용해서 구현하며, 키가 **해시 가능** 해야 한다는 제한을 갖고있다. 해시값이 같은 객체는 결국 id()의 값이 같은것이다.
-    > **해시 가능하다라** 는 말의 의미는 수명 주기동안 결코 변하지 않는 해시값을 갖고 있고(__hash__()메서드가 필요하다) 다른 객체와 비교할 수 있으면(__eq__() 메서드가 필요하다), 객체를 해시 가능하다고 한다. 동일하다고 판단되는 객체는 반드시 해시값이 동일해야 한다.
-    원자적 불변형(str, byte, 수치형)은 모두 해시 가능하다. frozenset은 언제나 해시 가능하다. 모든 요소가 해시 가능하도록 정의되어 있기 때문이다. 튜플은 들어 있는 항목들이 모두 해시가능해야 해시 가능하다.
-
-    [해쉬가능한 자료형](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex3-1~3/can_hash.py "소스코드")
-     -->
-
+    
     - defaultdict 객체를 생성할 때 존재하지 않는 키 인수로 __getitem__() 메서드를 호출할 때마다 기본값을 생성하기 위해 사용되는 콜러블을 제공하는 것이다.
     예를들어 dd = defaultdict(list) 코드로 기본 defaultdict 객체를 생성한 후, dd에 존재하지 않는 키인 'new-key'로 dd['new-key'] 표현식을 실행하면 다음과 같이 처리된다.
         1. 리스트를 새로 생성하기 위해 list()를 호출한다.
         2. 'new-key'를 키로 사용해서 새로운 리스트를 dd에 삽입한다.
         3. 리스트에 대한 참조를 반환한다.
-        [defaultdict 예제소스](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex3-4~/index_default.py "소스코드")
+        [defaultdict 예제소스](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex3-4/index_default.py "소스코드")
 
     - __missing__(메서드) 매핑형은 이름으로도 쉽게 추측할 수 있게 __missing__() 메서드를 이용해서 존재하지 않는 키를 처리한다.
     이 특수 메서드는 기본 클래스인 dict에는 정의도어 있지 않지만, dict는 이 메서드를 알고 있다.
