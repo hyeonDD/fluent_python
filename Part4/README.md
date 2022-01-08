@@ -35,3 +35,5 @@
 10. 유니코드 데이터베이스 안의 문자 데이터
 
 11. str과 bytes를 다루는 이중 모드 API
+
+[유니코드 백과사전](https://unicode-table.com/kr/ "백과사전")
