@@ -1,6 +1,3 @@
-<!-- [인코딩 디코딩 예]
-(https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-1/encode&decode.py) -->
-
 # 텍스트 파일 다루기
 
 텍스트를 처리하는 최고의 방법은 '유니코드 샌드위치'다. 이 말은 입력할 때(파일을 읽기 위해 여는 때 등) 가능하면 빨리 bytes를 str로 변환해야 한다는 것을 의미한다. 샌드위치에 들어가는 '고기'는 프로그램의 비지니스 논리에 해당하는 부분이며, 여기서는 텍스트를 오로지 str 객체로 다룬다. 즉, 다른 처리를 하는 도중에 인코딩이나 디코딩하면 안된다. 출력 할 때는 가능한 늦게 str을 bytes로 인코딩한다. 대부분의 웹 프레임워크도 이렇게 작동하며, 처리하는 동안 bytes를 다루는 일은 거의 없다.
@@ -12,18 +9,18 @@
 
 따라서 텍스트 파일을 사용하는 일은 간단하다. 그렇지만 기본 인코딩에 의존하다보면 뜻하지 않은 봉변을 당할 수 있다.
 
-- [플랫폼 잘못된 인코딩 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-5/wrong_encoding.py)
+- [플랫폼 잘못된 인코딩 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-5/wrong_encoding.py)
 
 버그는 인코딩 지정 때문에 발생했다. 파일에 쓸 때는 UTF-8로로 지정했지만, 파일을 읽을 때는 지정하지 않았다. 따라서 파이썬은 시스템 기본 인코딩(cmd 에서 chcp로 확인) 활성 코드 페이지 949(ecu-kr)을 이용해서 파일을 읽게 되고, UnicodeDecodeError를 발생시켰다. 윈도우 에서는 이와 같은 문제가 발생할 확률이 높지만, 기본 인코딩으로 UTF-8을 사용하는 GNU/리눅스나 MAC OS X에서 이 코드를 실행하면 아무런 문제없이 작동하므로 이 코드에 문제가 없다고 생각하기 쉽다. 파일을 쓸 때 encoding 인수를 생략하면 기본 지역 설정에 따른 인코딩 방식을 사용하며, 파일을 읽을 때도 동일한 인코딩 방식을 이용해서 올바로 읽을 수 있다. 하지만 위와 같은 예제는 플랫폼에 따라, 혹은 플랫폼이 동일해도 지역 설정에 따라 다른 바이트를 담은 파일을 생성하게 되어 호환성 문제를 일으킨다.
 > 여러 컴퓨터나 여러 상황에서 실행되어야 하는 코드는 결코 기본 인코딩에 의존하면 안 된다. 기본 인코딩 방식은 컴퓨터마다, 혹은 실행할 때마다 달라질 수 있으므로 텍스트 파일을 읽을 때는 언제나 encoding 인수를 명시적으로 지정해야 한다.
 
-- [플랫폼 올바른 인코딩 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-5/correct_encoding.py)
+- [플랫폼 올바른 인코딩 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-5/correct_encoding.py)
 > 인코딩 방식을 알아내기 위해 파일 내용을 분석하는 경우가 아니라면 텍스트 파일을 이진 모드로 열지 않는것이 좋다. 인코딩 방식을 알아낼 때도 직접 하는 것보다 Chardet 모듈을 사용하는 것이 좋다. 일반적으로 래스터 이미지 등 이진 파일을 열 때만 이진 모드를 사용해야 한다.
 
 # 기본 인코딩 설정: 정신 나간 거 아냐?
 파이썬에서 입출력할 때 기본 인코딩 방식은 여러 설정에 의해 영향을 받는다.
 
-- [기본 인코딩 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-5/default_encodings.py)
+- [기본 인코딩 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-5/default_encodings.py)
     * locale.getpreferredencoding()이 가장 중요한 설정이다.
 
     * 텍스트 파일은 기본적으로 locale.getpreferredencoding()을 사용한다.
