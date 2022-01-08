@@ -3,7 +3,7 @@
 - 새로 도입된 이진 시퀀스형은 파이썬 2의 str과 여러모로 다르다. 우선 이진 시퀀스를 위해 사용되는 내장 자료형은 bytes와 bytearray, 두 가지가 있다는 점에 주의한다. bytes 형은 파이썬 3에서 소개된 불변형이고, bytearray는 파이썬 2.6에 추가된 가변형이다(파이썬 2.6에서도 bytes 형을 소개했지만 단지 str형의 별명이었을 뿐, 파이썬 3의 bytes 형과는 작동 방식이 달랐다.)
 
 
-- bytes와 bytearray에 들어 있는 각 항목은 0에서 255 사이의 정수로, 파이썬 2의 str에 들어있는 문자 하나로 구성된 문자열과는 다르다. 그러나 이진 시퀀스를 슬라이싱하면 언제나 동일한 자료형의 이진 시퀀스가 만들어지며, 슬라이스 길이가 1일 때도 마찬가지다.[bytes, bytearr 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-2~4~4/bytes.py "소스코드")
+- bytes와 bytearray에 들어 있는 각 항목은 0에서 255 사이의 정수로, 파이썬 2의 str에 들어있는 문자 하나로 구성된 문자열과는 다르다. 그러나 이진 시퀀스를 슬라이싱하면 언제나 동일한 자료형의 이진 시퀀스가 만들어지며, 슬라이스 길이가 1일 때도 마찬가지다.[bytes, bytearr 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-2~4/bytes.py "소스코드")
 > my_bytes[0]은 int 형을 반환하지만, my_bytes[:1]은 길이가 1인 bytes 객체를 반환한다는 사실은 그리 놀랍지 않다. s[0] == s[:1]이 되는 시퀀스형은 str이 유일하다. 실용적이기는 하지만 str의 이런 작동 방식은 예외적인 것이다. 그 외 모든 시퀀스의 경우, s[i]는 항목 하나를, s[i:i+1]은 안에 s[i]항목을 가진 동일한 자료형의 시퀀스를 반환한다.
 
 - 이진 시퀀스가 실제로 정수형의 시퀀스이긴 하지만, 리터럴 표기법을 보면 실제로는 아스키 텍스트가 들어가는 경우가 많다는 것을 알 수 있다. 따라서 각 바이트 값에 따라 다음과 같이 세가지 형태로 출력된다.
@@ -13,10 +13,10 @@
     
     * 그 외의 값은 널 바이트를 나타내는 \x00처럼 16진수 이스케이프 시퀀스로 출력한다.
 
-- 출력 가능한것은 문자 그대로 출력해주기 때문에 [bytes, bytearr 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-2~4~4/bytes.py "소스코드")에서 b'cafe\xed\x95\x9c'와 같이 cafe까지는 출력 가능한 아스키 범위에 있기에 그대로 출력 후 '한'이라는 글자는 기계 메모리 덤프 형태로 출력됨.
+- 출력 가능한것은 문자 그대로 출력해주기 때문에 [bytes, bytearr 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-2~4/bytes.py "소스코드")에서 b'cafe\xed\x95\x9c'와 같이 cafe까지는 출력 가능한 아스키 범위에 있기에 그대로 출력 후 '한'이라는 글자는 기계 메모리 덤프 형태로 출력됨.
 
 - bytes와 bytearray는 포매팅하는 format()과 format_map() 메서드를 제외하고는 str이 제공하는 메서드를 모드 지원하며, casefold(), isdecimal(), isdentifier(), isnumeric(), isprintable(), encode()등 유니코드 데이터에 관련된 메서드를 지원한다. 따라서 endswith(), replace(), strip(), translate(),upper()등의 메서드를 지원한다. 따라서 endswith(), replace(), strip(), translate(), upper() 등의 메서드를 str이 아닌 bytes 인수에도 적용할 수 있따. 게다가 str 대신 이진 시퀀스로 정규 표현식을 컴파일하면 re 모듈에서 제공하는 정규 표현식 함수를 이진 시퀀스에도 적용할 수 있다. 파이썬 3.0부터 3.4 까지는 이진 시퀀스에 퍼센트(%) 연산자를 사용할 수 없지만, 'PEP 461 - bytes와 bytearray에 % 포맷 추가' 제안서(https://www.python.org/dev/peps/pep-0461/)에 따라 파이썬 3.5에서는 퍼센트 연산자도 지원한다.
-이진 시퀀스는 fromhex()라는 str에 없는 클래스 메서드도 제공하는데, 이 메서드를 이용하면 공백으로 구분된 16진수 쌍을 파싱해서 이진 시퀀스를 만들 수 있다.[str to 이진시퀀스](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-2~4/str_to_2seq.py "소스코드")
+이진 시퀀스는 fromhex()라는 str에 없는 클래스 메서드도 제공하는데, 이 메서드를 이용하면 공백으로 구분된 16진수 쌍을 파싱해서 이진 시퀀스를 만들 수 있다.[str to 이진시퀀스](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-2~4/str_to_2seq.py "소스코드")
     - 생성에 다음과 같은 인수를 이용해서 bytes나 bytearray 객체를 생성할 수 있다.
         * str과 encoding 키워드 인수
 
@@ -34,13 +34,13 @@
 - memoryview 클래스로 바이트 시퀀스를 생성하거나 저장할 수는 없지만, 바이트를 복사하지 않고 다른 이진 시퀀스, 패킹된 배열, 혹은 파이썬 이미징 라이브러리(PIL) 이미지등 버퍼 데이터의 슬라이스에 공유 메모리 방식으로 접근할 수 있게 해준다.
 > PIL 포크(fork)중 Pillow (https://pillow.readthedocx.org/en/latest/) 가 가장 활발히 개발되고 있다.
 
-- [memoryview와 struct 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-2~4/memoryview_struct.py "소스코드")
+- [memoryview와 struct 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-2~4/memoryview_struct.py "소스코드")
 memoryview를 슬라이싱하면 바이트를 복사하지 않고 새로운 memoryview 객체를 반환함에 주의하라(이 책의 테크니컬 리뷰어 중 한 명인 레오나르도 로챌은 mmap 모듈을 사용해서 이미지를 메모리 맵 파일로 열면 훨씬 더 적은 바이트가 복사됨을 알려주었다.) 이 책에서는 **mmap**에 대해 설명하지 않지만, 이진 파일을 읽고 변경하는 작업을 자주 수행하게 된다면 mmap을 공부하자. 'mmap - 메모리 맵 파일 지원(https://docx.python.org/3/library/mmap.html)을 참조해라'. 이 책에서는 memoryview나 struct 모듈에 대해 깊이 파고들지는 않지만, 이진 데이터를 사용한다면 '내장 자료형 >> 메모리 뷰(http://bit.ly/1Vm7Znl)와 'struct - bytes를 패킹된 이진 데이터로 해석하기(http://bit.ly/1Vm7YjA)를 공부해둘 필요가 있다).
 
 # 기본 인코더/디코더
 - 이진 시퀀스가 어떻게 문자열로/에서 변환되는지 알아보자.
 
-- 텍스트를 바이트로 혹은 바이트를 텍스트로 변환하기 위해 파이썬 배포본에는 100여 개의 코덱(인코더/디코디)이 포함되어 있다. 각 코덱은 utf_8와 같은 이름을 갖고 있는데, utf8. utf-8, U8 등으로 불리기도 한다. 코덱은 open(), str.encode(), bytes.decode()등의 함수를 호출할 때 encoding 인수에 전달해서 사용할 수 있다. [예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-2~4/default_encode.py "소스코드")
+- 텍스트를 바이트로 혹은 바이트를 텍스트로 변환하기 위해 파이썬 배포본에는 100여 개의 코덱(인코더/디코디)이 포함되어 있다. 각 코덱은 utf_8와 같은 이름을 갖고 있는데, utf8. utf-8, U8 등으로 불리기도 한다. 코덱은 open(), str.encode(), bytes.decode()등의 함수를 호출할 때 encoding 인수에 전달해서 사용할 수 있다. [예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-2~4/default_encode.py "소스코드")
 
 
 # 인코딩/디코딩 문제 이해하기
@@ -56,7 +56,7 @@ memoryview를 슬라이싱하면 바이트를 복사하지 않고 새로운 memo
 - 하지만 cp1252, iso8859_1, koi8_r 등 많은 레거시 8비트 코덱은 무작위 비트 배열에 대해서도 에러를 발생시키지 않고 바이트 스트림으로 디코딩할 수 있다. 따라서 프로그램이 잘못된 8비트 코덱을 사용하면 쓰레기 문자를 조용히 디코딩하게 된다.
 > 왜곡된 문자를 그렘린(gremlin) 혹인 문자깨짐 이라고 한다.
 
-- [잘못된 코덱의 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-2~4/wrong_codec.py "소스코드")
+- [잘못된 코덱의 예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-2~4/wrong_codec.py "소스코드")
 
 # 바이트 시퀀스의 인코딩 방식을 알아내는 방법
 
@@ -68,7 +68,7 @@ memoryview를 슬라이싱하면 바이트를 복사하지 않고 새로운 memo
 다양한 문자 인코딩을 탐지하는 Chardet[설명링크](https://pypi.python.org/pypi/chardet)는 이런 방법을 이용해서 30가지 인코딩 방식을 알아낸다. Chardet은 프로그램에서 사용할 수 있는 파이썬 라이브러리일 뿐만 아니라 chardetect라는 명령행 유틸리티도 포함하고 있다.
 
 # BOM: 유용한 깨진 문자
-- [예제](https://github.com/hyeonDD/fluent_python/blob/master/Part3/ex4-2~4/default_encode.py "소스코드") 에서 UTF-16으로 인코딩된 텍스트 앞에 여분의 바이트가 있는 것을 보았다. 해당 부분만 옮겨오면 아래와 같다.
+- [예제](https://github.com/hyeonDD/fluent_python/blob/master/Part4/ex4-2~4/default_encode.py "소스코드") 에서 UTF-16으로 인코딩된 텍스트 앞에 여분의 바이트가 있는 것을 보았다. 해당 부분만 옮겨오면 아래와 같다.
 
 ***
 \>>> u16 = 'El NiÑo'.encode('utf_16')
