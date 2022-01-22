@@ -1,6 +1,3 @@
-from hashlib import new
-
-
 def make_averager():
     series = []
 
