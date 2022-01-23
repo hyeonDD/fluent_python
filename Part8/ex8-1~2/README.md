@@ -6,7 +6,9 @@
 
 아래 에제는 '상자로서의 변수'개념이 설명할 수 없는 간단한 코드다. 아래 그림을 보면 파이썬에서 상자 비유는 잘못된 반면, 포스트잇 변수가 실제 작동하는 방식을 잘 보여주고있다.
 - [사본이 아니라 동일한 리스트를 참조하는 변수 a와 b](https://github.com/hyeonDD/fluent_python/blob/master/Part8/ex8-1~2/same_list.py)
+
 ![그림설명](https://github.com/hyeonDD/fluent_python/blob/master/Part8/ex8-1~2/그림.png)
+
 스타인 교수는 할당에 대해서도 매우 신중하게 설명했다. 예를 들어 시뮬레이션에서 시소 객체에 대해 얘기할 때 '변수 s가 시소에 할당되었다'고 했지 '시소가 변수 s에 할당되었다'고 하지 않았다. 참조 변수의 경우 변수가 객체에 할당되었단는 표현이 객체를 변수에 할당했다는 표현보다 훨씬 타당하다. 결국 객체는 변수가 할당되기 전에 생성된다. 아래 예제는 할당문의 오른쪽이 먼저 실행된다는 것을 입증한다.
 
 - [객체가 생성된 후에야 변수가 객체에 할당된다.](https://github.com/hyeonDD/fluent_python/blob/master/Part8/ex8-1~2/gizmo_class.py)
@@ -40,7 +42,9 @@ TypeError: unsupported operand type(s) for *: 'Gizmo' and 'int'
 3. lewis에 항목을 추가하는 것은 charles에 항목을 추가하는 것과 동일하다.
 
 그런데 예를 들어 알렉산더 페다첸코 박사가 자신이 1832년에 태어난 찰스 L. 도지슨이라고 사칭하고 있다고 가정하자. 그의 자격 증명이 동일할 수는 있어도 페다첸코 박사가 도지슨 교수일 수는 없다.
+
 ![그림설명2](https://github.com/hyeonDD/fluent_python/blob/master/Part8/ex8-1~2/그림2.png)
+
 - [위 그림2의 소스코드](https://github.com/hyeonDD/fluent_python/blob/master/Part8/ex8-1~2/charles_lewis_alex.py)
 1. alex는 charles에 할단된 객체의 복제본을 가리킨다.
 2. dict 클래스에서 __eq__()를 구현하는 방식 때문에 두 객체를 비교해서 같다고 판단한다.
