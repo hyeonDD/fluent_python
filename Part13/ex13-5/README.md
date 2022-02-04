@@ -12,7 +12,7 @@
 > **파이썬 3에서의 새로운 동작**
 모든 비교 연산자의 대안 메서드 호출 과정이 파이썬 2와 달라졌다. __ne__()의 경우, 파이썬 3에서는 단지 __eq__()의 반대값이 반환된다. 순서 비교 연산자의 경우, 예를 들어 정수와 튜플을 비교하면 파이썬 3에서는 'unorderable types: int() < tuple ()>'과 같은 메세지와 함께 TypeError가 발생한다. 파이썬 2에서 이러한 비교는 객체의ID를 이용해서 임의적으로 비교한 이상한 결과가 나왔다. 사실 정수와 튜플을 비교하는 것은 의미가 없으므로, 파이썬 3에서 제대로 개선되었다고 볼 수 있다.
 
-지금까지 설명한 규칙에 따라 [vector_v5.py](https://github.com/hyeonDD/fluent_python/blob/master/Part10/ex10-1~4/vector_v5.py)의 vector_v5.py를 검토하고 Vector.__eq__()메서드의 동작을 다음과 같이 개선해보자.
+지금까지 설명한 규칙에 따라 [vector_v5.py](https://github.com/hyeonDD/fluent_python/blob/master/Part10/ex10-7/vector_v5.py)의 vector_v5.py를 검토하고 Vector.__eq__()메서드의 동작을 다음과 같이 개선해보자.
 ```
 class Vector:
     # 나머지 메서드 생략
