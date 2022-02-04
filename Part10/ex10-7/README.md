@@ -19,4 +19,4 @@ format(Vector([0, 1, 0, 0]), '0.4fh)
 
 __format__() 메서드를 수정하기 전에 몇 가지 지원 메서드를 구현해야 한다. angle(n)은 특정 좌표의 각좌표를 계산하고 (에를들면 1), angles()는 모든 각좌표의 반복형을 반환한다. 여기서는 구체적인 수학 공식은 설명하지 안흔다. Vector 요소 배열에 들어있는 직교좌표에서 구면좌표를 구하는 자세한 방법은 위키 백과의 '초구면 좌표계' (https://ko.wikipedia.org/wiki/초구면_좌표계) 를 참조하라.
 
-- [vector_v5.py](https://github.com/hyeonDD/fluent_python/blob/master/Part10/ex10-1~4/vector_v5.py)
+- [vector_v5.py](https://github.com/hyeonDD/fluent_python/blob/master/Part10/ex10-7/vector_v5.py)
